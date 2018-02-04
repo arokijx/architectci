@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+	<Properties>
+		<Property name="log-path">${env:IDA_BASE}/logs/</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="RollingFile" fileName="${env:IDA_BASE}/logs/IdaLog4j.log"
+			filePattern="${log-path}/IdaLog4j-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS} [%-5p]-%c{1}: - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="500MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" stopCustomActionsOnError="true">
+				<Delete basePath="${env:IDA_BASE}/logs">
+				<!-- delete only IdaLog4j-*.logs, keeps only last seven day log files -->
+					<IfFileName glob="IdaLog4j-*.log" /> <!-- count not incremented if name does not match -->
+					<IfLastModified age="7d" />
+				</Delete>
+			</DefaultRolloverStrategy>			
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="root" level="DEBUG" additivity="DEBUG">
+			<appender-ref ref="RollingFile" level="DEBUG" />
+		</Logger>
+		<Root level="DEBUG" additivity="false">
+			<AppenderRef ref="RollingFile" />
+		</Root>
+	</Loggers>
+</Configuration>
