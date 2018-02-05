@@ -18,7 +18,7 @@ package com.abbott.ida.etl.actions;
    {
 	   
 	  
-	   System.out.println("This is continuos integeration test project");
+	   ystem.out.println("This is continuos integeration test project");
    }
  
  
