@@ -20,7 +20,7 @@ package com.abbott.ida.etl.actions;
 	   String Teststring = "sonartest";
 
 	   String teststring = "sonartest";
-	   String testString = 0;
+	   String testString = 0111;
 	   System.out.println("This is continuos integeration test project");
    }
  
