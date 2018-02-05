@@ -17,10 +17,7 @@ package com.abbott.ida.etl.actions;
      throws Exception
    {
 	   
-	   String Teststring = "sonartest";
-
-	   String teststring = "sonartest";
-	   String testString = 0111;
+	  
 	   System.out.println("This is continuos integeration test project");
    }
  
